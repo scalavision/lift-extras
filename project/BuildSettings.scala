@@ -54,13 +54,14 @@ object BuildSettings {
     name := "extras",
     organization := "net.liftmodules",
     version := "0.5-SNAPSHOT",
-    scalaVersion := "2.11.5",
+    scalaVersion := "2.11.7",
+    liftVersion := "3.0-M6",
     liftVersion <<= liftVersion ?? "2.6",
     liftEdition <<= liftVersion apply { _.substring(0,3) },
     name <<= (name, liftEdition) { (n, e) =>  n + "_" + e },
     crossScalaVersions <<= liftEdition { le => le match {
-      case "3.0" => Seq("2.11.5")
-      case _ => Seq("2.9.2", "2.10.4", "2.11.5")
+      case "3.0" => Seq("2.11.7")
+      case _ => Seq("2.9.2", "2.10.4", "2.11.7")
     }},
     scalacOptions <<= scalaBinaryVersion map { sbv => sbv match {
       case "2.9.2" => Seq("-deprecation", "-unchecked")

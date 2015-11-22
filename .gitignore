@@ -1,3 +1,8 @@
+#general
+.classpath*
+.project
+.settings
+
 # sbt
 target/
 
